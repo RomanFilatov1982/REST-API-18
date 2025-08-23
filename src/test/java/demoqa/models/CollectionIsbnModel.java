@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
-public class AddBooksListModel {
+public class CollectionIsbnModel {
     String userId;
     List<IsbnModel> collectionOfIsbns;
 

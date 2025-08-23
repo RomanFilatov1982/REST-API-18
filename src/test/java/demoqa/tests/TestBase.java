@@ -1,6 +1,7 @@
 package demoqa.tests;
 
 import com.codeborne.selenide.Configuration;
+import demoqa.helpers.Attach;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -18,6 +19,11 @@ public class TestBase {
 
     @AfterEach
     void shutDown() {
+        Attach.screenshotAs("Last screenshot");
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
+        Attach.addVideo();
+        closeWebDriver();
         closeWebDriver();
     }
 }

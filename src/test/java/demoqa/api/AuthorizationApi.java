@@ -3,6 +3,7 @@ package demoqa.api;
 import demoqa.models.LoginRequestModel;
 import demoqa.models.LoginResponseModel;
 
+import static demoqa.specs.RequestSpec.requestSpec;
 import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
 
@@ -10,7 +11,7 @@ public class AuthorizationApi {
 
     public LoginResponseModel login(LoginRequestModel loginRequest) {
 
-        return given()
+        return given(requestSpec)
                 .contentType(JSON)
                 .body(loginRequest)
                 .when()
