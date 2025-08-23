@@ -6,6 +6,7 @@ import demoqa.models.CollectionIsbnModel;
 import demoqa.models.IsbnModel;
 import demoqa.models.LoginRequestModel;
 import demoqa.models.LoginResponseModel;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Cookie;
 
@@ -26,6 +27,7 @@ public class ProfileBooksListTest extends TestBase {
     IsbnModel isbnModel = new IsbnModel();
 
     @Test
+    @Tag("basket")
     void AddBookToProfileTest() {
         LoginResponseModel loginResponse = step("Authorization user", () ->
         authorization.login(new LoginRequestModel(login, password)));

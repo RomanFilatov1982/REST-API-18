@@ -53,3 +53,9 @@ tasks.withType(Test) {
         }
     }
 }
+
+task books_basket(type: Test) {
+    useJUnitPlatform {
+        includeTags("basket")
+    }
+}
