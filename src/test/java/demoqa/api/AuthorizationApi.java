@@ -3,7 +3,7 @@ package demoqa.api;
 import demoqa.models.LoginRequestModel;
 import demoqa.models.LoginResponseModel;
 
-import static demoqa.specs.RequestSpec.requestSpec;
+import static demoqa.specs.BaseSpecs.requestSpec;
 import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
 

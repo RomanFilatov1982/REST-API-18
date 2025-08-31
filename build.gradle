@@ -31,7 +31,6 @@ dependencies {
             "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-selenide:$allureVersion",
             "io.rest-assured:rest-assured:$restAssuredVersion",
-            "io.rest-assured:json-schema-validator:$restAssuredVersion",
             "io.qameta.allure:allure-rest-assured:$allureVersion",
             'org.junit.jupiter:junit-jupiter:5.9.3',
             'org.slf4j:slf4j-simple:2.0.7'
@@ -51,11 +50,5 @@ tasks.withType(Test) {
             events "started", "skipped", "failed", "standard_error", "standard_out"
             exceptionFormat "short"
         }
-    }
-}
-
-task books_basket(type: Test) {
-    useJUnitPlatform {
-        includeTags("basket")
     }
 }
