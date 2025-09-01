@@ -6,7 +6,7 @@ import demoqa.models.CollectionIsbnModel;
 import demoqa.models.IsbnModel;
 import demoqa.models.LoginRequestModel;
 import demoqa.models.LoginResponseModel;
-import demoqa.pages.AuthorizationCookie;
+import demoqa.pages.AuthUtils;
 import demoqa.pages.ProfilePage;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -14,16 +14,13 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 import static demoqa.tests.TestData.login;
 import static demoqa.tests.TestData.password;
 import static io.qameta.allure.Allure.step;
 
 public class ProfileBooksListTest extends TestBase {
     AuthorizationApi authorizationApi = new AuthorizationApi();
-    AuthorizationCookie authorizationCookie = new AuthorizationCookie();
+    AuthUtils authUtils = new AuthUtils();
     LoginRequestModel userData = new LoginRequestModel(login, password);
     BooksApi booksApi = new BooksApi();
     IsbnModel isbnModel = new IsbnModel();
@@ -54,7 +51,7 @@ public class ProfileBooksListTest extends TestBase {
         });
 
         step("Authorization user in UI via cookies", () -> {
-            authorizationCookie.authorizationWithCookies();
+            authUtils.authByCookies();
         });
 
         step("Delete book in profile", () -> {
