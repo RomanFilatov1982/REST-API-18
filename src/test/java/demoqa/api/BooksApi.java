@@ -2,6 +2,7 @@ package demoqa.api;
 
 import demoqa.models.CollectionIsbnModel;
 import demoqa.models.LoginResponseModel;
+import io.qameta.allure.Step;
 
 import static demoqa.specs.BaseSpecs.requestSpec;
 import static demoqa.specs.BaseSpecs.responseSpec;
@@ -9,6 +10,8 @@ import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
 
 public class BooksApi {
+
+    @Step("Сlear book collection")
     public void deleteAllBooks(LoginResponseModel loginResponse) {
         given(requestSpec)
                 .contentType(JSON)

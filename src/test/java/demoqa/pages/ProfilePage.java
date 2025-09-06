@@ -1,6 +1,7 @@
 package demoqa.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
@@ -12,6 +13,13 @@ public class ProfilePage {
             closeForm = $("#closeSmallModal-ok"),
             check = $(".ReactTable");
 
+    @Step("Open/Profile")
+    public ProfilePage openPage() {
+        open("/profile");
+        return this;
+    }
+
+    @Step("Delete book in profile")
     public ProfilePage deleteBook() {
         open("/profile");
         deleteIcon.click();
@@ -19,7 +27,8 @@ public class ProfilePage {
         return this;
     }
 
-    public ProfilePage checkPage() {
+    @Step("Check profile, should not have book")
+    public ProfilePage checkNoRowsFound() {
         check.shouldHave(text("No rows found"));
         return this;
     }

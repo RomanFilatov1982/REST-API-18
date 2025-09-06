@@ -6,7 +6,7 @@ import demoqa.models.CollectionIsbnModel;
 import demoqa.models.IsbnModel;
 import demoqa.models.LoginRequestModel;
 import demoqa.models.LoginResponseModel;
-import demoqa.pages.AuthUtils;
+import demoqa.Utils.AuthUtils;
 import demoqa.pages.ProfilePage;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -23,43 +23,34 @@ public class ProfileBooksListTest extends TestBase {
     AuthUtils authUtils = new AuthUtils();
     LoginRequestModel userData = new LoginRequestModel(login, password);
     BooksApi booksApi = new BooksApi();
-    IsbnModel isbnModel = new IsbnModel();
+
     ProfilePage profilePage = new ProfilePage();
 
     @Test
     @Tag("basket")
-    void AddBookToProfileTest() {
-        LoginResponseModel loginResponse = step("Authorization user", () ->
-                authorizationApi.login(userData));
-
-        step("Сlear collection", () -> {
-            booksApi.deleteAllBooks(loginResponse);
-        });
-
+    void deleteBookFromProfileTest() {
+        IsbnModel isbnModel = new IsbnModel();
         isbnModel.setIsbn("9781449325862");
         List<IsbnModel> isbnList = new ArrayList<>();
+        isbnList.add(isbnModel);
+
+        LoginResponseModel loginResponse = authorizationApi.login(userData);
+
+        booksApi.deleteAllBooks(loginResponse);
 
         step("Add book to profile", () -> {
-            isbnList.add(isbnModel);
-        });
-
-        step("", () -> {
             CollectionIsbnModel booksList = new CollectionIsbnModel(loginResponse.getUserId(), isbnList);
             booksList.setUserId(loginResponse.getUserId());
             booksList.setCollectionOfIsbns(isbnList);
             booksApi.addBook(loginResponse, booksList);
         });
 
-        step("Authorization user in UI via cookies", () -> {
+        step("Open/profile with authorized user", () -> {
             authUtils.authByCookies();
-        });
+            profilePage.openPage();
 
-        step("Delete book in profile", () -> {
-            profilePage.deleteBook();
         });
-
-        step("Check profile, should not have book", () -> {
-            profilePage.checkPage();
-        });
+        profilePage.deleteBook();
+        profilePage.checkNoRowsFound();
     }
 }
