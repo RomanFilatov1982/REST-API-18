@@ -1,4 +1,4 @@
-package demoqa.Utils;
+package demoqa.utils;
 
 import demoqa.models.LoginResponseModel;
 import io.qameta.allure.Step;

@@ -6,7 +6,7 @@ import demoqa.models.CollectionIsbnModel;
 import demoqa.models.IsbnModel;
 import demoqa.models.LoginRequestModel;
 import demoqa.models.LoginResponseModel;
-import demoqa.Utils.AuthUtils;
+import demoqa.utils.AuthUtils;
 import demoqa.pages.ProfilePage;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;

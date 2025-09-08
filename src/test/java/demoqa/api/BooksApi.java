@@ -23,6 +23,7 @@ public class BooksApi {
                 .spec(responseSpec(204));
     }
 
+    @Step("Add book to collection")
     public void addBook(LoginResponseModel loginResponse, CollectionIsbnModel booksList) {
         given(requestSpec)
                 .contentType(JSON)
