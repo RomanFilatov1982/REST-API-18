@@ -6,7 +6,7 @@ pipeline {
         LOGIN    = credentials('LOGIN')
         PASSWORD = credentials('PASSWORD')
         // username + password вместе
-        SELENOID = credentials('selenoid-cred')
+        SELENOID = credentials('selenoid-creds')
     }
 
     stages {
