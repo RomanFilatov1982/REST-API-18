@@ -18,7 +18,7 @@ public class TestBase {
 
     @BeforeAll
     static void setup() {
-        Configuration.baseUrl = System.getProperty("baseUrl", "https://demoqa.com/");
+        //Configuration.baseUrl = System.getProperty("baseUrl", "https://demoqa.com/");
         RestAssured.baseURI = System.getProperty("baseUrl", "https://demoqa.com/");
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("browserVersion", "138.0");
