@@ -9,9 +9,9 @@ import static com.codeborne.selenide.Selenide.open;
 
 
 public class ProfilePage {
-    private final SelenideElement deleteIcon = $("#delete-record-undefined"),
-            closeForm = $("#closeSmallModal-ok"),
-            check = $(".ReactTable");
+    private final SelenideElement DELETE_ICON = $("#delete-record-undefined"),
+            CLOSE_FORM = $("#closeSmallModal-ok"),
+            CHECK = $(".ReactTable");
 
     @Step("Open/Profile")
     public ProfilePage openPage() {
@@ -22,14 +22,14 @@ public class ProfilePage {
     @Step("Delete book in profile")
     public ProfilePage deleteBook() {
         open("/profile");
-        deleteIcon.click();
-        closeForm.click();
+        DELETE_ICON.click();
+        CLOSE_FORM.click();
         return this;
     }
 
     @Step("Check profile, should not have book")
     public ProfilePage checkNoRowsFound() {
-        check.shouldHave(text("No rows found"));
+        CHECK.shouldHave(text("No rows found"));
         return this;
     }
 }

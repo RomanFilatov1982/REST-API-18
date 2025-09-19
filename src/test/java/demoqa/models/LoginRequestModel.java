@@ -1,9 +1,9 @@
 package demoqa.models;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 
-@Getter
+@Data
 @AllArgsConstructor
 public class LoginRequestModel {
     private String login;

@@ -29,20 +29,16 @@ public class ProfileBooksListTest extends TestBase {
     @Test
     @Tag("basket")
     void deleteBookFromProfileTest() {
-        IsbnModel isbnModel = new IsbnModel();
-        isbnModel.setIsbn("9781449325862");
-        List<IsbnModel> isbnList = new ArrayList<>();
-        isbnList.add(isbnModel);
+
+        List<IsbnModel> isbnList = TestData.getIsbnModelList("9781449325862");
+
 
         LoginResponseModel loginResponse = authorizationApi.login(userData);
 
         booksApi.deleteAllBooks(loginResponse);
 
         step("Add book to profile", () -> {
-            CollectionIsbnModel booksList = new CollectionIsbnModel(loginResponse.getUserId(), isbnList);
-            booksList.setUserId(loginResponse.getUserId());
-            booksList.setCollectionOfIsbns(isbnList);
-            booksApi.addBook(loginResponse, booksList);
+            booksApi.addBook(loginResponse, new CollectionIsbnModel(loginResponse.getUserId(), isbnList));
         });
 
         step("Open/profile with authorized user", () -> {
