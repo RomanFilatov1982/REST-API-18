@@ -11,11 +11,11 @@ public class AuthUtils {
     LoginResponseModel loginResponse = new LoginResponseModel();
 
     @Step("Authorization user in UI via cookies")
-    public void authByCookies() {
+    public void authByCookies(LoginResponseModel userInfo) {
         open("/favicon.ico");
-        getWebDriver().manage().addCookie(new Cookie("userID", loginResponse.getUserId()));
-        getWebDriver().manage().addCookie(new Cookie("expires", loginResponse.getExpires()));
-        getWebDriver().manage().addCookie(new Cookie("token", loginResponse.getToken()));
+        getWebDriver().manage().addCookie(new Cookie("userID", userInfo.getUserId()));
+        getWebDriver().manage().addCookie(new Cookie("expires", userInfo.getExpires()));
+        getWebDriver().manage().addCookie(new Cookie("token", userInfo.getToken()));
     }
 
 }
