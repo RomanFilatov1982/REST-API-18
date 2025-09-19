@@ -51,8 +51,8 @@ public class TestBase {
     }
 
     static void selenideConfiguration() {
-         /*Configuration.baseUrl = System.getProperty("baseUrl", "https://demoqa.com/");
-        RestAssured.baseURI = System.getProperty("baseUrl", "https://demoqa.com/");
+         /*Configuration.baseUrl = System.getProperty("baseUrl", "https://demoqa.com");
+        RestAssured.baseURI = System.getProperty("baseUrl", "https://demoqa.com");
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("browserVersion", "138.0");
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
@@ -60,8 +60,8 @@ public class TestBase {
 
 
         Configuration.pageLoadTimeout = 60000;
-        Configuration.baseUrl = "https://demoqa.com/";
-        RestAssured.baseURI = "https://demoqa.com/";
+        Configuration.baseUrl = "https://demoqa.com";
+        RestAssured.baseURI = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
         Configuration.holdBrowserOpen = true;
