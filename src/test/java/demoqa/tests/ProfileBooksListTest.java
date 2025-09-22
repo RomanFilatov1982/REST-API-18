@@ -29,7 +29,6 @@ public class ProfileBooksListTest extends TestBase {
         step("Open/profile with authorized user", () -> {
             getAuthUtils().authByCookies(userInfo);
             profilePage.openPage();
-
         });
         profilePage.deleteBook();
         profilePage.checkNoRowsFound();

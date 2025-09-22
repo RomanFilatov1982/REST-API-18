@@ -21,7 +21,6 @@ public class ProfilePage {
 
     @Step("Delete book in profile")
     public ProfilePage deleteBook() {
-        open("/profile");
         DELETE_ICON.click();
         CLOSE_FORM.click();
         return this;
