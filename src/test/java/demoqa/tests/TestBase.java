@@ -39,7 +39,6 @@ public class TestBase {
         if (remoteUrl != null && !remoteUrl.isEmpty()) {
             Configuration.remote = remoteUrl;
         } else {
-            Configuration.holdBrowserOpen = true;
             Configuration.pageLoadTimeout = 60000;
             Configuration.pageLoadStrategy = "eager";
         }
@@ -66,7 +65,6 @@ public class TestBase {
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
-        closeWebDriver();
         closeWebDriver();
     }
 
