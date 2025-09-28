@@ -56,6 +56,8 @@ public class TestBase {
     void prepareTest() {
         userData = new LoginRequestModel(login, password);
         userInfo = AUTHORIZATION_API.login(userData);
+        System.out.println("!!!!!!");
+        System.out.println(userInfo.getExpires());
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
